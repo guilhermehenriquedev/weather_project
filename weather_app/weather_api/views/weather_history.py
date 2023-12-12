@@ -3,19 +3,26 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from weather_api.models import PrevisaoTempo
+from weather_api.repository.main import Repository
+from weather_api.models import PrevisaoTempoHistorico
 from weather_api.serializer import PrevisaoTempoMS
 
 
 class PrevisaoTempoHistoryViewSet(viewsets.ModelViewSet):
-
-    queryset = PrevisaoTempo.objects.all()
+    """ Retorna dados de busca anteriores """
+    
+    queryset = PrevisaoTempoHistorico.objects.all()
     serializer_class = PrevisaoTempoMS
     filter_backends = (SearchFilter, OrderingFilter)
 
     search_fields = [
         'id',
     ]
+
+    def __init__(self, *args, **kwargs):
+        ''' Cria tabela de histórico, caso nao exista '''
+        repo = Repository()
+        repo.create_table_if_not_exist()
     
     def get_serializer_class(self):
         actions = [
@@ -30,7 +37,7 @@ class PrevisaoTempoHistoryViewSet(viewsets.ModelViewSet):
 
     def put(self, request, id=None):
 
-        _data = PrevisaoTempo.objects.filter(id=id)
+        _data = PrevisaoTempoHistorico.objects.filter(id=id)
         serializer = PrevisaoTempoMS(_data, data=request.data)
         if serializer.is_valid():
             serializer.save()

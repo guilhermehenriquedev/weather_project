@@ -2,7 +2,7 @@
 
 from django.db import models
 
-class PrevisaoTempo(models.Model):
+class PrevisaoTempoHistorico(models.Model):
     id = models.AutoField(primary_key=True)
     cidade = models.CharField(max_length=100)
     data = models.JSONField()

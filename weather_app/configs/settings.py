@@ -25,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jaci3$v$zg=gh4ig99574m!%nxjtti^--c-_elp#%4xft3-xz%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", cast=bool, default=False)
+DEBUG = True
+
+OPENWEATHERMAP_API_KEY = config('OPENWEATHERMAP_API_KEY')
 
 ALLOWED_HOSTS = []
 

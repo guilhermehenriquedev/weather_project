@@ -5,5 +5,5 @@ class PrevisaoTempoMS(serializers.ModelSerializer):
     ''' Serializador da tabela previsao_tempo '''
 
     class Meta:
-        model = PrevisaoTempo
+        model = PrevisaoTempoHistorico
         fields = '__all__'
