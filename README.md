@@ -82,6 +82,12 @@ Inicie o servidor
 
 
 
+## Logs
+A aplicação conta com um sistema de logs padrão do Django, para localizar entre na pasta
+```bash
+    cd weather_project/weather_app/logs
+    vim application.log
+```
 ## Stack utilizada
 
 **Back-end:** Python, Django \
