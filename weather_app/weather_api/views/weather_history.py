@@ -16,7 +16,7 @@ class PrevisaoTempoHistoryViewSet(viewsets.ModelViewSet):
     filter_backends = (SearchFilter, OrderingFilter)
 
     search_fields = [
-        'id',
+        'cidade',
     ]
 
     def __init__(self, *args, **kwargs):
