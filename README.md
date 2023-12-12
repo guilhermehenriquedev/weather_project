@@ -30,11 +30,17 @@ Para rodar esse projeto, você vai precisar gerar uma APIKEY no site https://ope
 
 `OPENWEATHERMAP_API_KEY`=SUA_API_KEY
 
-Inicie o servidor
+Aplique as migrações
 
 ```bash
   cd weather_app
-  python3 manage.py runserver
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+```
+
+Inicie o Servidor
+```bash
+    python3 manage.py runserver
 ```
 
 
