@@ -1,5 +1,6 @@
 import csv
 import io
+import logging
 
 def dictfetchall(cursor):
     ''' Retorna registros do cursor como uma lista de dicionarios '''
